@@ -17,8 +17,9 @@ chrome.browserAction.onClicked.addListener(function(tab) {
             for (var i = 0; i < views.length; i++) {
                 var view = views[i];
                 if (view.location.href == viewTabUrl) {
-                    console.log(view);
-                    view.setScreenshotUrl(screenshotUrl);
+                    view.initialize({
+                        screenshot: screenshotUrl
+                    });
                     break;
                 }
             }

@@ -2,3 +2,16 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
+iframe#toolbar {
+	position: absolute;
+	left: 100px;
+	top: 100px;
+	width: 200px;
+	height: 300px;
+	z-index: 100;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+}
