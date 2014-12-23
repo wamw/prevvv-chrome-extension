@@ -12,7 +12,7 @@ function initialize(options) {
 	var screenshot = options.screenshot;
 
 	App.setScreenshot(screenshot);
-	App.setToolbar();
+	// App.setToolbar();
 }
 
 
