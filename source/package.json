@@ -8,6 +8,8 @@
     "url": "git@github.com:wamw/some-chrome-extension.git"
   },
   "dependencies": {
+    "browserify": "^7.0.3",
+    "debowerify": "^1.2.0",
     "gulp": "^3.8.10"
   }
 }
