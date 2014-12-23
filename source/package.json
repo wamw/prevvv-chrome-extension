@@ -7,4 +7,7 @@
     "type": "git",
     "url": "git@github.com:wamw/some-chrome-extension.git"
   },
+  "dependencies": {
+    "gulp": "^3.8.10"
+  }
 }

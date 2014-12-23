@@ -2,3 +2,5 @@
 build/**/*.html
 build/**/*.css
 build/**/*.js
+
+source/node_modules
