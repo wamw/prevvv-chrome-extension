@@ -16,11 +16,17 @@ var conf = {
 };
 
 gulp.task('build', function() {
-	
+
 });
 
 gulp.task('image', function() {
 	return gulp.src(conf.source.image)
 		.pipe(gulp.dest(conf.dest.image))
+		;
+});
+
+gulp.task('html', function() {
+	return gulp.src(conf.source.html)
+		.pipe(gulp.dest(conf.dest.html))
 		;
 });
