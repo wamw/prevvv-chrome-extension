@@ -26,6 +26,15 @@ gulp.task('build', function() {
 	);
 });
 
+gulp.task('watch', function() {
+	gulp.watch([
+		conf.source.html,
+		conf.source.js,
+		conf.source.css,
+		conf.source.image
+	], ['build'])
+});
+
 gulp.task('image', function() {
 	return gulp.src(conf.source.image)
 		.pipe(gulp.dest(conf.dest.image))
@@ -39,14 +48,17 @@ gulp.task('html', function() {
 });
 
 gulp.task('script', function() {
-	var bundle = browserify({
-		entries: ['./js/popup.js'],
-		insertGlobals : true
-	})
-		.transform(['debowerify'])
-		.bundle()
-		.pipe(source('popup.js'))
+	// var bundle = browserify({
+	// 	entries: ['./js/popup.js'],
+	// 	insertGlobals : true
+	// })
+	// 	.transform(['debowerify'])
+	// 	.bundle()
+	// 	.pipe(source('popup.js'))
+	// 	.pipe(gulp.dest(conf.dest.js))
+	// 	;
+
+	gulp.src(conf.source.js)
 		.pipe(gulp.dest(conf.dest.js))
 		;
-	return bundle;
 });

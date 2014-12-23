@@ -1,1 +1,1 @@
-alert("HOGE");
+console.log("HOGE");

@@ -2,6 +2,11 @@
 
 ## Build
 
+```
+cd source
+gulp build
+```
+
 ## Installation
 
 
