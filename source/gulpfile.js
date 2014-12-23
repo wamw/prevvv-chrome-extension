@@ -27,7 +27,8 @@ var conf = {
 gulp.task('build', function() {
 	runSequence(
 		['ect'],
-		['html', 'image', 'style', 'script']
+		// ['html', 'image', 'style', 'script']
+		['html', 'image', 'style', 'script-screenshot']
 	);
 });
 
@@ -72,6 +73,25 @@ gulp.task('script', function() {
 	// 	;
 
 	gulp.src(conf.source.js)
+		.pipe(gulp.dest(conf.dest.js))
+		;
+});
+
+gulp.task('script-background', function() {
+
+	gulp.src('./js/background.js')
+		.pipe(gulp.dest(conf.dest.js))
+		;
+});
+
+gulp.task('script-screenshot', function() {
+	var bundle = browserify({
+		entries: ['./js/screenshot.js'],
+		insertGlobals : true
+	})
+		.transform(['debowerify'])
+		.bundle()
+		.pipe(source('screenshot.js'))
 		.pipe(gulp.dest(conf.dest.js))
 		;
 });

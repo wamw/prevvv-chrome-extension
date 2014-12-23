@@ -2,21 +2,26 @@
     'use strict';
 
     var Toolbar = {
+    	mode: '',
         onToolArrowClick: function(event) {
             event.preventDefault();
             console.log('on arrow click');
+            this.mode = 'arrow';
         },
         onToolRectangleClick: function(event) {
             event.preventDefault();
             console.log('on rectangle click');
+            this.mode = 'rect';
         },
         onToolCircleClick: function(event) {
             event.preventDefault();
             console.log('on circle click');
+            this.mode = 'circle';
         },
         onToolLineClick: function(event) {
             event.preventDefault();
             console.log('on line click');
+            this.mode = 'line';
         },
         onOutputImageClick: function(event) {
             event.preventDefault();
