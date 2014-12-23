@@ -10,6 +10,7 @@
   "dependencies": {
     "browserify": "^7.0.3",
     "debowerify": "^1.2.0",
-    "gulp": "^3.8.10"
+    "gulp": "^3.8.10",
+    "gulp-run-sequence": "^0.3.2"
   }
 }
