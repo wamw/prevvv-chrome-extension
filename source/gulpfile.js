@@ -3,6 +3,7 @@ var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var debowerify = require('debowerify');
 var runSequence = require('gulp-run-sequence');
+var sass = require('gulp-ruby-sass');
 
 
 var conf = {
@@ -22,7 +23,7 @@ var conf = {
 
 gulp.task('build', function() {
 	runSequence(
-		['html', 'image', 'script']
+		['html', 'image', 'style', 'script']
 	);
 });
 
@@ -62,3 +63,12 @@ gulp.task('script', function() {
 		.pipe(gulp.dest(conf.dest.js))
 		;
 });
+
+gulp.task('style', function() {
+	return gulp.src(conf.source.css)
+		.pipe(sass({
+			style: 'expanded'
+		}))
+		.pipe(gulp.dest(conf.dest.css))
+		;
+})

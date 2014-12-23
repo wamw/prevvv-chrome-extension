@@ -1,7 +1,11 @@
 .DS_Store
+
+.sass-cache
+
 build/**/*.html
-build/**/*.css
-build/**/*.js
+build/css
+build/js
 build/images
 
 source/node_modules
+
