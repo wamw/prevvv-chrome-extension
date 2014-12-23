@@ -1,0 +1,10 @@
+{
+  "name": "someproject",
+  "version": "1.0.0",
+  "description": "",
+  "author": "suttang",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wamw/some-chrome-extension.git"
+  },
+}
