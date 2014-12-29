@@ -1,0 +1,20 @@
+{
+  "name": "extension",
+  "version": "0.0.0",
+  "homepage": "https://github.com/wamw/some-chrome-extension",
+  "authors": [
+    "suttang <suttang@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "easeljs": "~0.8.0",
+    "jquery": "~2.1.3"
+  }
+}

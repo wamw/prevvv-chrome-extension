@@ -8,4 +8,4 @@ build/js
 build/images
 
 source/node_modules
-
+source/bower_components
