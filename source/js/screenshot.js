@@ -1,14 +1,15 @@
 (function(global) {
     'use strict';
 
+    var $ = require('jquery');
 	var Toolbar = require('./toolbar');
 
 	var App = {
 		setScreenshot: function(url) {
-			document.getElementById('image').innerHTML = '<img src="' + url + '" />';
+			$('#capture').html('<img src="' + url + '" />');
 		},
 		setToolbar: function() {
-			document.getElementById('toolbar').innerHTML = '<iframe id="toolbar" src="content/toolbar.html">';
+			$('#toolbar').html('<iframe id="toolbar" src="content/toolbar.html">');
 		}
 	};
 
@@ -17,7 +18,13 @@
 		var screenshot = options.screenshot;
 
 		App.setScreenshot(screenshot);
-		// App.setToolbar();
+
+		var canvas = $('<canvas />')
+			.css({
+				width: $('#capture img').width(),
+				height: $('#capture img').height()
+			})
+			.appendTo($('#paper'));
 	}
 
     if ("process" in global) {

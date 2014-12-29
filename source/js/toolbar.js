@@ -1,8 +1,13 @@
 (function(global) {
     'use strict';
 
+    var $ = require('jquery');
+
     var Toolbar = {
     	mode: '',
+        initialize: function() {
+            console.log('toolbar initialize')
+        },
         onToolArrowClick: function(event) {
             event.preventDefault();
             console.log('on arrow click');
@@ -33,12 +38,12 @@
         }
     };
 
-    document.getElementById('tool-arrow').addEventListener('click', Toolbar.onToolArrowClick);
-    document.getElementById('tool-rect').addEventListener('click', Toolbar.onToolRectangleClick);
-    document.getElementById('tool-circle').addEventListener('click', Toolbar.onToolCircleClick);
-    document.getElementById('tool-line').addEventListener('click', Toolbar.onToolLineClick);
-    document.getElementById('output-image').addEventListener('click', Toolbar.onOutputImageClick);
-    document.getElementById('output-issue').addEventListener('click', Toolbar.onOutputIssueClick);
+    $('#tool-arrow').on('click', Toolbar.onToolArrowClick);
+    $('#tool-rect').on('click', Toolbar.onToolRectangleClick);
+    $('#tool-circle').on('click', Toolbar.onToolCircleClick);
+    $('#tool-line').on('click', Toolbar.onToolLineClick);
+    $('#output-image').on('click', Toolbar.onOutputImageClick);
+    $('#output-issue').on('click', Toolbar.onOutputIssueClick);
 
     if ("process" in global) {
         module.exports = Toolbar;
