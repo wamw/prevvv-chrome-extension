@@ -5,7 +5,7 @@ var debowerify = require('debowerify');
 var runSequence = require('gulp-run-sequence');
 var sass = require('gulp-ruby-sass');
 var ect = require('gulp-ect');
-
+var rimraf = require('rimraf');
 
 var conf = {
 	source: {
@@ -30,12 +30,16 @@ var conf = {
 	}
 };
 
+gulp.task('clean', function(callback) {
+	rimraf('./html', callback);
+});
+
 gulp.task('build', function() {
 	runSequence(
 		['ect'],
 		['lib'],
-		// ['html', 'image', 'style', 'script']
-		['html', 'image', 'style', 'script-screenshot', 'script-init', 'script-background']
+		['html', 'image', 'style', 'script-screenshot', 'script-init', 'script-background'],
+		['clean']
 	);
 });
 
