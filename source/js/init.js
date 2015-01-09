@@ -30,13 +30,7 @@
 		width: captureImage.width(),
 		height: captureImage.height()
 	}).appendTo(canvas[0]);
-
-	var circle = two.makeCircle(70, 100, 50);
-	circle.fill = '#FF8000';
-	circle.stroke = 'orangered';
-	circle.linewidth = 5;
-	two.update();
-
+	
 	var mouseX;
 	var mouseY;
 
@@ -55,12 +49,13 @@
 	})
 	canvas.on('mousemove', function(event) {
 		if (isMouseDown) {
-			if (line)
+			if (line) {
 				two.remove(line);
-			console.log(mouseX, mouseY);
+			}
 			line = two.makeLine(mouseX, mouseY, event.clientX, event.clientY);
 			line.stroke = 'orangered';
 			line.linewidth = 5;
+			two.update();
 		}
 	})
 
