@@ -1,0 +1,29 @@
+html.extWaiting {
+	body {
+		background: #0f0 !important;
+	}
+}
+html.extReady {
+	overflow: hidden !important;
+	height: 100% !important;
+	body {
+		overflow: hidden !important;
+		height: 100% !important;
+		background: #f00 !important;
+
+		* {
+			visibility: hidden !important;
+		}
+	}
+}
+
+#ext-application {
+	visibility: visible !important;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+
+	* {
+		visibility: visible !important;
+	}
+}

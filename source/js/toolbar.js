@@ -4,6 +4,7 @@
     var $ = require('jquery');
 
     var Toolbar = {
+        stage: null,
     	mode: '',
         initialize: function() {
             console.log('toolbar initialize')
@@ -11,6 +12,7 @@
         onToolArrowClick: function(event) {
             event.preventDefault();
             console.log('on arrow click');
+            console.log(this.stage);
             this.mode = 'arrow';
         },
         onToolRectangleClick: function(event) {
@@ -35,6 +37,10 @@
         onOutputIssueClick: function(event) {
             event.preventDefault();
             console.log('on send to issue click');
+        },
+        attachStage: function(stage) {
+            console.log(stage);
+            this.stage = stage;
         }
     };
 
@@ -45,8 +51,5 @@
     $('#output-image').on('click', Toolbar.onOutputImageClick);
     $('#output-issue').on('click', Toolbar.onOutputIssueClick);
 
-    if ("process" in global) {
         module.exports = Toolbar;
-    }
-    global['Toolbar'] = Toolbar;
 })((this || 0).self || global);

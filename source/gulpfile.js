@@ -13,22 +13,29 @@ var conf = {
 		html: './html/**/!(_)*.html',
 		css: './scss/**/!(_)*.scss',
 		js: './js/**/*.js',
-		image: './images/**/*'
+		image: './images/**/*',
+		lib: {
+			js: './lib/js/**/*'
+		}
 	},
 	dest: {
 		ect: './html',
 		html: '../build',
 		js: '../build/js',
 		css: '../build/css',
-		image: '../build/images'
+		image: '../build/images',
+		lib: {
+			js: '../build/js/lib'
+		}
 	}
 };
 
 gulp.task('build', function() {
 	runSequence(
 		['ect'],
+		['lib'],
 		// ['html', 'image', 'style', 'script']
-		['html', 'image', 'style', 'script-screenshot']
+		['html', 'image', 'style', 'script-screenshot', 'script-init', 'script-background']
 	);
 });
 
@@ -40,6 +47,12 @@ gulp.task('watch', function() {
 		conf.source.css,
 		conf.source.image
 	], ['build'])
+});
+
+gulp.task('lib', function() {
+	return gulp.src(conf.source.lib.js)
+		.pipe(gulp.dest(conf.dest.lib.js))
+		;
 });
 
 gulp.task('image', function() {
@@ -78,8 +91,21 @@ gulp.task('script', function() {
 });
 
 gulp.task('script-background', function() {
+	gulp.src([
+		'./js/background.js'
+	])
+		.pipe(gulp.dest(conf.dest.js))
+		;
+});
 
-	gulp.src('./js/background.js')
+gulp.task('script-init', function() {
+	var bundle = browserify({
+		entries: ['./js/init.js'],
+		insertGlobals : true
+	})
+		.transform(['debowerify'])
+		.bundle()
+		.pipe(source('init.js'))
 		.pipe(gulp.dest(conf.dest.js))
 		;
 });
