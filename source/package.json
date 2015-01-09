@@ -5,7 +5,7 @@
   "author": "suttang",
   "repository": {
     "type": "git",
-    "url": "git@github.com:wamw/some-chrome-extension.git"
+    "url": "git@github.com:wamw/prvvv-chrome-extension.git"
   },
   "dependencies": {
     "browserify": "^7.0.3",
