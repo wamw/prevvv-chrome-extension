@@ -26,4 +26,15 @@ html.extReady {
 	* {
 		visibility: visible !important;
 	}
+
+	#ext-capture-image {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	}
+	#ext-easel {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	}
 }
