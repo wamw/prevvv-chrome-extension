@@ -2,6 +2,7 @@
 (function() {
     var $ = require('jquery');
     var PrvvvCanvas = require('./lib/PrvvvCanvas');
+    var PrvvvToolbar = require('./lib/PrvvvToolbar');
 
     var html = $('html').get(0);
     var body = $('body').get(0);
@@ -24,5 +25,9 @@
         height: captureImage.height()
     });
     prvvvCanvas.appendTo(applicationLayer);
+
+    // create toolbar
+    var toolbar = new PrvvvToolbar(context);
+    toolbar.appendTo(applicationLayer);
 
 })();

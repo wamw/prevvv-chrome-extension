@@ -3,6 +3,8 @@ chrome.browserAction.onClicked.addListener(function(tab) {
     var context = {};
     chrome.tabs.captureVisibleTab(function(captureData) {
         context.captureData = captureData;
+        context.extension = chrome.extension;
+        context.toolbarHTML = chrome.extension.getURL('toolbar.html');
 
         contextJson = JSON.stringify(context);
         chrome.tabs.executeScript(null, {code: 'var context = ' + contextJson + ';'}, function() {
